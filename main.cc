@@ -1,6 +1,7 @@
 #include <iostream>
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
+#include <glm/glm.hpp>
 
 int main(int argc, char* argv[])
 {
@@ -9,8 +10,8 @@ int main(int argc, char* argv[])
     auto window = glfwCreateWindow(1600, 900, "test", nullptr, nullptr);
 
     glfwMakeContextCurrent(window);
-
     gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
+    // gladLoadGL();
 
     while (!glfwWindowShouldClose(window)) {
         glClearColor(1.0, 1.0, 0.0, 1.0);
