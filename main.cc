@@ -18,8 +18,9 @@ int main(int argc, char* argv[])
     std::cout << glGetString(GL_VERSION) << std::endl;
     std::cout << glGetString(GL_SHADING_LANGUAGE_VERSION) << std::endl;
 
+    glClearColor(1.0, 1.0, 0.0, 1.0);
+
     while (!glfwWindowShouldClose(window)) {
-        glClearColor(1.0, 1.0, 0.0, 1.0);
         glClear(GL_COLOR_BUFFER_BIT);
 
         glfwSwapBuffers(window);
