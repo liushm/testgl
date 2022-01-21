@@ -10,8 +10,13 @@ int main(int argc, char* argv[])
     auto window = glfwCreateWindow(1600, 900, "test", nullptr, nullptr);
 
     glfwMakeContextCurrent(window);
-    gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
-    // gladLoadGL();
+    // gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
+    gladLoadGL();
+
+    std::cout << glGetString(GL_RENDERER) << std::endl;
+    std::cout << glGetString(GL_VENDOR) << std::endl;
+    std::cout << glGetString(GL_VERSION) << std::endl;
+    std::cout << glGetString(GL_SHADING_LANGUAGE_VERSION) << std::endl;
 
     while (!glfwWindowShouldClose(window)) {
         glClearColor(1.0, 1.0, 0.0, 1.0);
