@@ -12,12 +12,19 @@ pipeline{
 				}
 			}
 		}
-		/*stage("package"){
-		}*/
+		stage("package") {
+			steps {
+				script {
+					bat """
+						ZIP -r test_gl_build_%BUILD_DIR%_x64.zip *
+					"""
+				}
+			}
+		}
 	}
 	post{
 		success {
-			archiveArtifacts artifacts: 'glad/src/*', fingerprint: true, caseSensitive: false
+			archiveArtifacts artifacts: 'test_gl_build_%BUILD_DIR%_x64.zip', fingerprint: true
 		}
 	}
 }
