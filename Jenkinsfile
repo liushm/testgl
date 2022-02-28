@@ -17,7 +17,7 @@ pipeline{
 	}
 	post{
 		success {
-			archiveArtifacts artifacts: 'glad/src', fingerprint: true, caseSensitive: false
+			archiveArtifacts artifacts: 'glad/src/*', fingerprint: true, caseSensitive: false
 		}
 	}
 }
