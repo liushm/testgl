@@ -16,7 +16,7 @@ pipeline{
 			steps {
 				script {
 					bat """
-						ZIP -r test_gl_build_%BUILD_DIR%_x64.zip *
+						ZIP -r test_gl_build_%BUILD_ID%_x64.zip *
 					"""
 				}
 			}
