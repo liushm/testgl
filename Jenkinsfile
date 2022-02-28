@@ -46,7 +46,7 @@ pipeline{
 	}
 	post{
 		success {
-			archiveArtifacts artifacts: "build-${BUILD_ID}/Release/*.zip", fingerprint: true
+			archiveArtifacts artifacts: 'build-${BUILD_ID}/Release/*.zip', fingerprint: true
 		}
 	}
 }
