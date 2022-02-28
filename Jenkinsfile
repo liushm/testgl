@@ -23,7 +23,7 @@ pipeline{
 		}
 	}
 	post{
-		success {
+		changed {
 			archiveArtifacts artifacts: "*.zip", fingerprint: true
 		}
 	}
