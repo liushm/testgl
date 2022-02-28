@@ -24,7 +24,7 @@ pipeline{
 	}
 	post{
 		success {
-			archiveArtifacts artifacts: "test_gl_build_%BUILD_DIR%_x64.zip", fingerprint: true
+			archiveArtifacts artifacts: "*.zip", fingerprint: true
 		}
 	}
 }
