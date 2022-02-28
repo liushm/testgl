@@ -45,7 +45,7 @@ pipeline{
 		}
 	}
 	post{
-		changed {
+		success {
 			archiveArtifacts artifacts: "build-*/release/*.zip", fingerprint: true
 		}
 	}
