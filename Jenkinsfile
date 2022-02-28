@@ -12,11 +12,33 @@ pipeline{
 				}
 			}
 		}
-		stage("package") {
+		stage("Build") {
 			steps {
 				script {
 					bat """
+						mkdir build-%BUILD_ID%
+						pushd .
+						cd build-%BUILD_ID%
+
+						cmake ..
+						cmake --build . --config=release
+
+						popd
+					"""
+				}
+			}
+		}
+		stage("Package") {
+			steps {
+				script {
+					bat """
+						pushd .
+						cd build-%BUILD_ID%
+						cd release
+
 						ZIP -r test_gl_build_%BUILD_ID%_x64.zip *
+
+						popd
 					"""
 				}
 			}
@@ -24,7 +46,7 @@ pipeline{
 	}
 	post{
 		changed {
-			archiveArtifacts artifacts: "*.zip", fingerprint: true
+			archiveArtifacts artifacts: "build-*/release/*.zip", fingerprint: true
 		}
 	}
 }
