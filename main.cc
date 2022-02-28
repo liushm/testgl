@@ -23,6 +23,15 @@ int main(int argc, char* argv[])
     glClearColor(1.0, 1.0, 0.0, 1.0);
     glClearColor(1.0, 0.766, 0.336, 1.0);
 
+    glm::mat4 m = glm::mat4(1.0);
+    m = glm::translate(m, glm::vec3(1.0f, 2.0f, 3.0f));
+    for (int i = 0; i < 4; i++) {
+        for (int j = 0; j < 4; j++) {
+            std::cout << m[j][i] << " ";  // 都是列向量
+        }
+        std::cout << std::endl;
+    }
+    std::cout << std::endl;
 
     std::cout << std::endl;
     glm::mat4 pesp = glm::perspective(0.660594709659f, 1.5f, 0.1f, 10000.0f);
