@@ -34,7 +34,8 @@ int main(int argc, char* argv[])
     std::cout << std::endl;
 
     std::cout << std::endl;
-    glm::mat4 pesp = glm::perspective(0.660594709659f, 1.5f, 0.1f, 10000.0f);
+    // glm::mat4 pesp = glm::perspective(0.660594709659f, 1.5f, 0.1f, 10000.0f);
+    glm::mat4 pesp = glm::perspective(glm::radians(54.43f), 1.5f, 0.1f, 10000.0f);
     for (int i = 0; i < 4; i++) {
         for (int j = 0; j < 4; j++) {
             std::cout << pesp[j][i] << " ";
