@@ -8,9 +8,9 @@ pipeline{
 						@REM ==============================================================================
 						@REM PREREQUISITE: JENKINS_VS_DEV_CMD, JENKINS_UE_SRC_UE4, git cmake python in PATH
 						@REM ==============================================================================
-					"""
 
-					echo %VERSION%
+						echo %VERSION%
+					"""
 				}
 			}
 		}
