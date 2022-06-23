@@ -6,9 +6,7 @@ add_subdirectory(glfw)
 add_subdirectory(glm)
 
 add_executable(test main.cc)
-target_link_libraries(test PRIVATE glad)
-target_link_libraries(test PRIVATE glfw)
-target_link_libraries(test PRIVATE glm)
+target_link_libraries(test PRIVATE glad glfw glm)
 add_custom_command(TARGET test POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy_if_different ${CMAKE_SOURCE_DIR}/glfw/lib-vc2019/glfw3.dll ${CMAKE_CURRENT_BINARY_DIR}/$<CONFIG>)
 set_property(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} PROPERTY VS_STARTUP_PROJECT test)
 
