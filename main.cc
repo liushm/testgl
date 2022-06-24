@@ -8,6 +8,8 @@
 #include <glm/glm.hpp>
 #include <glm/gtc/type_ptr.hpp>
 #include <glm/gtc/matrix_transform.hpp>
+#include <boost/gil.hpp>
+#include <boost/gil/extension/io/png.hpp>
 
 using glm::vec3;
 
@@ -52,6 +54,18 @@ static void mouse_button_callback(GLFWwindow* window, int button, int action, in
 	else if (button == GLFW_MOUSE_BUTTON_LEFT && action == GLFW_RELEASE) {
 		pressed = false;
 	}
+	else if (button = GLFW_MOUSE_BUTTON_MIDDLE && action == GLFW_RELEASE)
+	{
+		unsigned char* data = new unsigned char[1600 * 1000 * 3];
+		glReadPixels(0, 0, 1600, 1000, GL_RGB, GL_UNSIGNED_BYTE, data);
+
+		using namespace boost::gil;
+
+		rgb8_view_t v = interleaved_view(1600, 1000, (rgb8_pixel_t*)data, 1600 * 3);
+		write_view("test.png", flipped_up_down_view(v), png_tag{});
+
+		delete[] data;
+	}
 }
 
 static void scroll_callback(GLFWwindow* window, double xoffset, double yoffset)
@@ -70,7 +84,7 @@ int main()
 		return -1;
 
 	/* Create a windowed mode window and its OpenGL context */
-	window = glfwCreateWindow(1000, 600, "Hello World", NULL, NULL);
+	window = glfwCreateWindow(1600, 1000, "Hello World", NULL, NULL);
 	if (!window)
 	{
 		glfwTerminate();
@@ -293,7 +307,7 @@ void main() {
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, vboIndex);
 
 	v = glm::lookAt(vec3(0.0f, 0.0f, 5.0f), vec3(0.0f, 0.0f, 0.0f), vec3(0.0f, 1.0f, 0.0f));
-	p = glm::perspective(glm::radians(45.0f), (float)5.0f / 3.0f, 0.1f, 5.0f);
+	p = glm::perspective(glm::radians(45.0f), (float)5.0f / 3.0f, 0.1f, 100.0f);
 
 
 	v = glm::rotate(v, glm::radians(30.0f), glm::vec3(1.0f, 0.0f, 0.0f));
@@ -314,7 +328,7 @@ void main() {
 	glEnable(GL_DEPTH_TEST);
 
 	//
-	glClearColor(1.0, 1.0, 0.0, 0.0);
+	glClearColor(0.1, 0.1, 0.1, 0.0);
 
 	/* Loop until the user closes the window */
 	while (!glfwWindowShouldClose(window))
