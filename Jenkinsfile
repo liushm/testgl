@@ -1,5 +1,8 @@
 pipeline{
 	agent any
+	environment {
+		MY_VERSION = "${bat(script:'echo hello', returnStdout: true)}"
+	}
 	stages{
 		stage("Prepare Build"){
 			steps{
@@ -10,8 +13,6 @@ pipeline{
 						@REM ==============================================================================
 
 						echo %VERSION%
-
-						SET MY_VERSION=%VERSION%.12345
 					"""
 				}
 			}
