@@ -10,6 +10,8 @@ pipeline{
 						@REM ==============================================================================
 
 						echo %VERSION%
+
+						SET MY_VERSION=%VERSION%.12345
 					"""
 				}
 			}
@@ -38,7 +40,7 @@ pipeline{
 						cd build-%BUILD_ID%
 						cd release
 
-						ZIP -r test_gl_build_%BUILD_ID%_x64.zip *
+						ZIP -r test_gl_build_%MY_VERSION%_x64.zip *
 
 						popd
 					"""
@@ -48,7 +50,7 @@ pipeline{
 	}
 	post{
 		success {
-			archiveArtifacts artifacts: "build-${BUILD_ID}/Release/*.zip", fingerprint: true
+			archiveArtifacts artifacts: "build-${MY_VERSION}/Release/*.zip", fingerprint: true
 		}
 	}
 }
