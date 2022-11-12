@@ -1,7 +1,7 @@
 pipeline{
 	agent any
 	environment {
-		MY_VERSION = "${bat(script:'echo hello', returnStdout: true)}"
+		MY_VERSION = ${bat(script:'echo 1.0.0.2', returnStdout: true)}
 	}
 	stages{
 		stage("Prepare Build"){
