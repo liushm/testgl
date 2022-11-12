@@ -13,6 +13,8 @@ pipeline{
 						@REM ==============================================================================
 
 						echo %VERSION%
+						echo %MY_VERSION%
+						echo ${env:MY_VERSION}
 					"""
 				}
 			}
@@ -41,7 +43,7 @@ pipeline{
 						cd build-%BUILD_ID%
 						cd release
 
-						ZIP -r test_gl_build_%MY_VERSION%_x64.zip *
+						ZIP -r test_gl_build_${env:MY_VERSION}_x64.zip *
 
 						popd
 					"""
