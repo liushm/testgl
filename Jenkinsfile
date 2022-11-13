@@ -9,7 +9,7 @@ pipeline{
 					println "hello, fuck!"
 					println "bye, fuck!"
 
-					def abcd = bat(script:'python --version', returnStdout: true)
+					def abcd = bat(script:'python --version', returnStdout: true).strim()
 					println "${abcd}"
 
 					bat """
