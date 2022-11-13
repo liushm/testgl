@@ -7,6 +7,7 @@ pipeline{
 			steps{
 				script{
 					println "hello, fuck!"
+					println "bye, fuck!"
 
 					bat """
 						@REM ==============================================================================
@@ -15,7 +16,7 @@ pipeline{
 
 						echo %VERSION%
 						echo %MY_VERSION%
-						echo ${MY_VERSION}
+						@REM echo ${MY_VERSION}
 					"""
 				}
 			}
