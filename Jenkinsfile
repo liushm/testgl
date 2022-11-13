@@ -2,7 +2,7 @@ pipeline{
 	agent any
 	stages{
 		stage("Prepare Build"){
-			//MY_VERSION = bat(script:'python --version', returnStdout: true)
+			MY_VERSION = bat(script:'python --version', returnStdout: true).strip()
 
 			steps{
 				script{
@@ -19,7 +19,7 @@ pipeline{
 
 						echo %VERSION%
 						echo %MY_VERSION%
-						python test.py ${abcd}
+						python test.py 1 2 3 4 ${MY_VERSION}
 						echo %BUILD_ID%
 					"""
 				}
