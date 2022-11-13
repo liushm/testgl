@@ -9,6 +9,11 @@ pipeline{
 					println "hello, fuck!"
 					println "bye, fuck!"
 
+					def browsers = ['chrome','firefox']
+                    for (int i = 0;i < browers.size();++i) {
+                        echo "Testing the ${browsers[i]} browser"
+                    }
+
 					bat """
 						@REM ==============================================================================
 						@REM PREREQUISITE: JENKINS_VS_DEV_CMD, JENKINS_UE_SRC_UE4, git cmake python in PATH
