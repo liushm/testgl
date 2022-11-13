@@ -10,7 +10,7 @@ pipeline{
 					println "bye, fuck!"
 
 					def abcd = "hello fuck yousjfoisjdfo"
-					println ${abcd}
+					println "${abcd}"
 
 					bat """
 						@REM ==============================================================================
