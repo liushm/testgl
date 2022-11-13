@@ -2,10 +2,11 @@ pipeline{
 	agent any
 	stages{
 		stage("Prepare Build"){
-			MY_VERSION = bat(script:'python --version', returnStdout: true)
+			//MY_VERSION = bat(script:'python --version', returnStdout: true)
 
 			steps{
 				script{
+					println "hello, fuck!"
 
 					bat """
 						@REM ==============================================================================
