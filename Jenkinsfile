@@ -4,7 +4,7 @@ pipeline{
 		stage("Prepare Build"){
 			steps{
 				script{
-					MY_VERSION = bat(script:'python --version', returnStdout: true)
+					def MY_VERSION = bat(script:'python --version', returnStdout: true)
 
 					bat """
 						@REM ==============================================================================
