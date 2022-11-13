@@ -19,7 +19,8 @@ pipeline{
 
 						echo %VERSION%
 						echo %MY_VERSION%
-						echo ${abcd}
+						python test.py ${abcd}
+						echo %BUILD_ID%
 					"""
 				}
 			}
