@@ -2,14 +2,12 @@ pipeline{
 	agent any
 	stages{
 		stage("Prepare Build"){
-			//MY_VERSION = bat(script:'python --version', returnStdout: true)
-
 			steps{
 				script{
 					println "hello, fuck!"
 					println "bye, fuck!"
 
-					def browsers = ['chrome','firefox']
+					browsers = ['chrome','firefox']
                     for (int i = 0;i < browers.size();++i) {
                         println "Testing the ${browsers[i]} browser"
                     }
