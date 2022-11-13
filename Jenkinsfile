@@ -9,7 +9,7 @@ pipeline{
 					println "hello, fuck!"
 					println "bye, fuck!"
 
-					def abcd = "hello fuck yousjfoisjdfo"
+					def abcd = bat(script:'python --version', returnStdout: true)
 					println "${abcd}"
 
 					bat """
@@ -19,7 +19,6 @@ pipeline{
 
 						echo %VERSION%
 						echo %MY_VERSION%
-						@REM echo ${MY_VERSION}
 					"""
 				}
 			}
