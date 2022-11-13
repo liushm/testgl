@@ -1,7 +1,7 @@
 pipeline{
 	agent any
 	environment {
-		MY_VERSION = bat(script:'python --version', returnStdout: true).strip()
+		MY_VERSION = bat(script:'python --version', returnStdout: true).trim()
 	}
 	stages{
 		stage("Prepare Build"){
