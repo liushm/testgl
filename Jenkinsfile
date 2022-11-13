@@ -19,6 +19,7 @@ pipeline{
 
 						echo %VERSION%
 						echo %MY_VERSION%
+						echo ${abcd}
 					"""
 				}
 			}
