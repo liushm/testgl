@@ -3,7 +3,7 @@ pipeline{
 	stages{
 		stage("Prepare Build"){
 			steps{
-				def MY_VERSION = bat(script:'python --version', returnStdout: true)
+				MY_VERSION = bat(script:'python --version', returnStdout: true)
 
 				script{
 
