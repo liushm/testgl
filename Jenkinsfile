@@ -1,12 +1,11 @@
 pipeline{
 	agent any
-	environment {
-		MY_VERSION = bat(script:'echo 1.0.0.2', returnStdout: true)
-	}
 	stages{
 		stage("Prepare Build"){
 			steps{
 				script{
+					MY_VERSION = bat(script:'echo 1.0.0.2', returnStdout: true)
+
 					bat """
 						@REM ==============================================================================
 						@REM PREREQUISITE: JENKINS_VS_DEV_CMD, JENKINS_UE_SRC_UE4, git cmake python in PATH
@@ -14,7 +13,7 @@ pipeline{
 
 						echo %VERSION%
 						echo %MY_VERSION%
-						echo ${env:MY_VERSION}
+						echo ${MY_VERSION}
 					"""
 				}
 			}
