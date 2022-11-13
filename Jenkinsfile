@@ -1,9 +1,10 @@
 pipeline{
 	agent any
+	environment {
+		MY_VERSION = bat(script:'python --version', returnStdout: true).strip()
+	}
 	stages{
 		stage("Prepare Build"){
-			MY_VERSION = bat(script:'python --version', returnStdout: true).strip()
-
 			steps{
 				script{
 					println "hello, fuck!"
