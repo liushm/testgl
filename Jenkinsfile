@@ -2,9 +2,9 @@ pipeline{
 	agent any
 	stages{
 		stage("Prepare Build"){
-			steps{
-				MY_VERSION = bat(script:'python --version', returnStdout: true)
+			MY_VERSION = bat(script:'python --version', returnStdout: true)
 
+			steps{
 				script{
 
 					bat """
