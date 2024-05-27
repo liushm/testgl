@@ -14,7 +14,7 @@ add_executable(test main.cc)
 target_link_libraries(test PRIVATE glad glfw glm)
 target_link_libraries(test PRIVATE Boost::boost PNG::PNG JPEG::JPEG)
 
-add_custom_command(TARGET test POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy_if_different ${CMAKE_SOURCE_DIR}/glfw/lib-vc2019/glfw3.dll ${CMAKE_CURRENT_BINARY_DIR}/$<CONFIG>)
+# add_custom_command(TARGET test POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy_if_different ${CMAKE_SOURCE_DIR}/glfw/lib-vc2019/glfw3.dll ${CMAKE_CURRENT_BINARY_DIR}/$<CONFIG>)
 
 # file(COPY ${CMAKE_SOURCE_DIR}/glfw/lib-vc2019/glfw3.dll DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
 # add_dependencies(test cpdll)
